@@ -39,6 +39,12 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+        for asteroid in asteroids:
+            for shot in shots:
+                if asteroid.has_collided(shot):
+                    asteroid.split()
+                    shot.kill()
+
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
             new_shot = player1.shoot()
